@@ -1,0 +1,23 @@
+import gradio as gr
+
+with gr.Blocks(title="Kentucky Open Records Assistant") as demo:
+    with gr.Row():
+        with gr.Column(variant="box", scale=2):
+            gr.Markdown("## KY Open Records Assistant")
+            txt = gr.Textbox(label="OpenAI API Key", lines=1)
+            txt = gr.Textbox(label="Question", lines=2)
+            gr.Markdown("### Disclaimer \n This tool can provide innaccurate information including hallucinations, incorrect citations, and problematic output, especially if prompted to do so. This tool cannot be used for legal advice.")
+        with gr.Column(variant="box", scale=4):
+            txt = gr.Textbox(label="Small Textbox", lines=1)
+            num = gr.Number(label="Number", show_label=False)
+            slider = gr.Slider(label="Slider", show_label=False)
+            check_g = gr.CheckboxGroup(
+                label="Checkbox Group",
+                choices=["One", "Two", "Three"],
+                show_label=False,
+            )
+            df = gr.Dataframe(show_label=False)
+
+
+if __name__ == "__main__":
+    demo.launch()
